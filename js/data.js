@@ -14,7 +14,7 @@ window.HOBBIES = [
   { id: 'drawing',   word: 'drawing',          idn: 'menggambar',        img: 'assets/hobbies/sketching.jpg' },
   { id: 'sewing',    word: 'sewing',           idn: 'menjahit',          img: 'assets/hobbies/sewing.jpg' },
   { id: 'jogging',   word: 'jogging',          idn: 'berlari santai',    img: 'assets/hobbies/jogging.jpg' },
-  { id: 'badminton', word: 'playing badminton', idn: 'bermain bulu tangkis', img: 'assets/hobbies/badminton.jpg' },
+  { id: 'kite',      word: 'flying a kite',   idn: 'bermain layang-layang', img: 'assets/hobbies/kite.jpg' },
   { id: 'chess',     word: 'playing chess',    idn: 'bermain catur',     img: 'assets/hobbies/chess.jpg' },
   { id: 'tennis',    word: 'playing tennis',   idn: 'bermain tenis',     img: 'assets/hobbies/tennis.jpg' },
   { id: 'guitar',    word: 'playing guitar',   idn: 'bermain gitar',     img: 'assets/hobbies/guitar.jpg' },
