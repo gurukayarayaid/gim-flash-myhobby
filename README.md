@@ -1,15 +1,16 @@
-# GAME DRAG HOBBY — My Hobby (Bahasa Inggris Kelas 3 SD)
+# FLASH MY HOBBY — Flashcard My Hobby (Bahasa Inggris Kelas 3 SD)
 
-Game edukasi mencocokkan gambar dan kata bertema **My Hobby** dengan drag and drop.
-Cocok untuk desktop, Interactive Flat Panel (IFP), dan layar sentuh.
+Game edukasi **mode flashcard** bertema **My Hobby** untuk Bahasa Inggris kelas 3 SD.
+Cocok untuk desktop, Interactive Flat Panel (IFP), tablet, dan layar sentuh.
 
 ## Fitur
 
-- 20 gambar hobi fotorealistis (reading, swimming, painting, cooking, soccer, dll.)
-- Drag and drop dengan mouse maupun sentuh (Pointer Events), plus fallback ketuk-kata lalu ketuk-gambar
-- Pengaturan jumlah pemain (1–4), jumlah soal (6/8/10/12/16/20), dan timer per soal (15/20/30/45 detik atau tanpa batas)
-- Skor: 100 poin per jawaban benar + bonus 5 poin per detik sisa
-- Papan skor langsung, animasi benar/salah, efek suara, tombol layar penuh
+- 20 kartu hobi dengan **foto realistik** yang fokus pada satu kegiatan
+- Dua arah belajar: **Gambar → Kata** (tebak bahasa Inggrisnya) atau **Kata → Gambar**
+- Balik kartu dengan ketuk/klik, tombol, atau `Spasi`; pindah kartu dengan `←` `→` atau geser (swipe)
+- Pilih jumlah kartu (6/10/12/16/20), acak kartu, dan mode sentuh dengan kartu lebih besar
+- Tandai **Sudah hafal** / **Belum hafal**, lalu ulangi hanya kartu yang belum hafal
+- Ringkasan hasil berisi daftar kartu, arti bahasa Indonesia, dan statusnya
 - Pengaturan terakhir disimpan di `localStorage`
 
 ## Menjalankan
@@ -25,7 +26,7 @@ python -m http.server 8000
 ```
 index.html
 css/style.css
-js/data.js     # daftar 20 hobi
-js/game.js     # logika permainan
-assets/hobbies # 20 gambar
+js/data.js     # daftar 20 hobi (kata Inggris, arti, gambar)
+js/app.js      # logika flashcard
+assets/hobbies # 20 foto hobi
 ```

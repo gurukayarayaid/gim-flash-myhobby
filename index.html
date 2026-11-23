@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Match My Hobby — Bahasa Inggris Kelas 3 SD</title>
-<meta name="description" content="Game pencocokan gambar dan teks bertema My Hobby untuk kelas 3 SD. Tarik kata ke gambar yang tepat, atur pemain, jumlah soal, dan waktu.">
+<title>Flashcard My Hobby — Bahasa Inggris Kelas 3 SD</title>
+<meta name="description" content="Flashcard gambar dan kata bertema My Hobby untuk kelas 3 SD. Lihat gambar hobi, tebak bahasa Inggrisnya, lalu balik kartu untuk memeriksa jawaban.">
 <meta name="theme-color" content="#f6f1e7">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231f9d6f'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23fffdf8' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231f9d6f'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23fffdf8' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,56 +18,41 @@
     <div class="setup-inner">
       <header class="hero">
         <span class="badge">Bahasa Inggris · Kelas 3 SD · Topic: My Hobby</span>
-        <h1>Match <em>My Hobby</em></h1>
-        <p class="lede">Tarik kartu kata ke gambar hobi yang tepat. Bisa juga <b>ketuk kata</b> lalu <b>ketuk gambar</b> — cocok untuk layar sentuh.</p>
+        <h1>Flashcard <em>My Hobby</em></h1>
+        <p class="lede">Lihat gambar hobinya, tebak bahasa Inggrisnya, lalu <b>balik kartu</b> untuk memeriksa jawaban. Cocok untuk belajar mandiri atau latihan bersama di depan kelas.</p>
       </header>
 
       <div class="setup-grid">
         <section class="panel">
-          <h2><i>1</i> Jumlah pemain</h2>
-          <div class="seg" id="seg-players" role="group" aria-label="Jumlah pemain">
-            <button type="button" data-v="1" class="on">1</button>
-            <button type="button" data-v="2">2</button>
-            <button type="button" data-v="3">3</button>
-            <button type="button" data-v="4">4</button>
-          </div>
-          <div class="names" id="name-fields"></div>
-        </section>
-
-        <section class="panel">
-          <h2><i>2</i> Jumlah soal</h2>
-          <div class="seg" id="seg-pairs" role="group" aria-label="Jumlah soal">
+          <h2><i>1</i> Jumlah kartu</h2>
+          <div class="seg" id="seg-count" role="group" aria-label="Jumlah kartu">
             <button type="button" data-v="6">6</button>
-            <button type="button" data-v="8">8</button>
-            <button type="button" data-v="10" class="on">10</button>
+            <button type="button" data-v="10">10</button>
             <button type="button" data-v="12">12</button>
             <button type="button" data-v="16">16</button>
-            <button type="button" data-v="20">20</button>
+            <button type="button" data-v="20" class="on">20</button>
           </div>
-          <p class="hint">Satu soal = satu pasangan gambar + kata. Tersedia 20 hobi.</p>
+          <p class="hint">Tersedia 20 kartu hobi. Kartu diambil acak dari tumpukan.</p>
         </section>
 
         <section class="panel">
-          <h2><i>3</i> Waktu per soal</h2>
-          <div class="seg" id="seg-timer" role="group" aria-label="Waktu per soal">
-            <button type="button" data-v="0">∞</button>
-            <button type="button" data-v="15">15<small>d</small></button>
-            <button type="button" data-v="20">20<small>d</small></button>
-            <button type="button" data-v="30" class="on">30<small>d</small></button>
-            <button type="button" data-v="45">45<small>d</small></button>
+          <h2><i>2</i> Arah kartu</h2>
+          <div class="seg stack" id="seg-mode" role="group" aria-label="Arah kartu">
+            <button type="button" data-v="image" class="on">Gambar → Kata</button>
+            <button type="button" data-v="word">Kata → Gambar</button>
           </div>
-          <p class="hint" id="timer-hint">Tiap pemain punya 30 detik untuk satu pasangan. Waktu habis = giliran berpindah.</p>
+          <p class="hint" id="mode-hint">Depan: foto hobi. Belakang: kata bahasa Inggris dan artinya.</p>
         </section>
 
         <section class="panel">
-          <h2><i>4</i> Tampilan</h2>
+          <h2><i>3</i> Pilihan belajar</h2>
           <label class="switch-row">
-            <span class="txt"><b>Mode sentuh</b><small>Kartu &amp; kata lebih besar, ketuk-ketuk</small></span>
-            <span class="sw"><input type="checkbox" id="ck-touch"><i></i></span>
+            <span class="txt"><b>Acak kartu</b><small>Urutan berbeda setiap mulai</small></span>
+            <span class="sw"><input type="checkbox" id="ck-shuffle" checked><i></i></span>
           </label>
           <label class="switch-row">
-            <span class="txt"><b>Suara</b><small>Efek bunyi benar / salah</small></span>
-            <span class="sw"><input type="checkbox" id="ck-sound" checked><i></i></span>
+            <span class="txt"><b>Mode sentuh</b><small>Kartu lebih besar, ketuk untuk balik</small></span>
+            <span class="sw"><input type="checkbox" id="ck-touch"><i></i></span>
           </label>
           <button type="button" class="btn ghost fullbtn" id="btn-full-setup">⛶ &nbsp;Layar penuh</button>
           <p class="hint">Untuk IFP / proyektor: aktifkan layar penuh, lalu main dengan jari atau mouse.</p>
@@ -75,69 +60,77 @@
       </div>
 
       <div class="setup-foot">
-        <p class="note"><b>Aturan:</b> jawaban benar = 100 poin + bonus waktu, dan pemain tetap mendapat giliran. Jawaban salah atau waktu habis = giliran berpindah.</p>
-        <button type="button" class="btn primary big" id="btn-start">Mulai Bermain</button>
+        <p class="note"><b>Cara pakai:</b> balik kartu dengan tombol atau ketuk kartu. Tandai <b>Sudah hafal</b> atau <b>Belum hafal</b>; di akhir kamu bisa mengulang hanya kartu yang belum hafal.</p>
+        <button type="button" class="btn primary big" id="btn-start">Mulai Belajar</button>
       </div>
     </div>
   </section>
 
-  <!-- ============ GAME ============ -->
-  <section class="screen game-screen" id="screen-game" hidden>
-    <header class="gamebar">
-      <div class="gamebrand">My <b>Hobby</b></div>
-      <div class="scores" id="scores"></div>
-      <div class="meters">
-        <div class="timer-pill" id="timer-pill" aria-live="off">
-          <span class="clock" aria-hidden="true">⏱</span>
-          <b id="timer-val">30</b>
-          <small id="timer-unit">detik</small>
-        </div>
-        <div class="prog">
-          <span id="progress-text">0 / 10 pasangan</span>
-          <div class="prog-bar"><i id="prog-fill"></i></div>
-        </div>
+  <!-- ============ FLASHCARD ============ -->
+  <section class="screen card-screen" id="screen-card" hidden>
+    <header class="topbar">
+      <div class="brand">Flashcard <b>My Hobby</b></div>
+      <div class="progress-wrap">
+        <span id="progress-text">Kartu 1 dari 10</span>
+        <div class="prog-bar"><i id="prog-fill"></i></div>
+      </div>
+      <div class="top-actions">
+        <button type="button" class="btn ghost sm" id="btn-shuffle">🔀 Acak</button>
+        <button type="button" class="btn ghost sm" id="btn-full2">⛶ Layar penuh</button>
+        <button type="button" class="btn ghost sm" id="btn-quit">Keluar</button>
       </div>
     </header>
 
-    <div class="turnbar" id="turnbar">
-      <span class="turn-dot" id="turn-dot"></span>
-      <span class="turn-label" id="turn-label">Giliran <b>Pemain 1</b></span>
-      <span class="turn-tip" id="turn-tip">Tarik kata ke gambar yang cocok</span>
-    </div>
+    <div class="deck">
+      <button type="button" class="nav-btn" id="btn-prev" aria-label="Kartu sebelumnya">‹</button>
 
-    <div class="board">
-      <section class="zone">
-        <div class="zone-head"><h2>Pictures</h2><span>gambar</span></div>
-        <div class="pics" id="pics"></div>
-      </section>
-      <section class="zone">
-        <div class="zone-head"><h2>Words</h2><span>kata</span></div>
-        <div class="words" id="words"></div>
-      </section>
-    </div>
-
-    <footer class="gamefoot">
-      <button type="button" class="btn ghost sm" id="btn-quit">Keluar</button>
-      <p class="foot-hint" id="foot-hint">Seret kata ke gambar — atau ketuk kata lalu ketuk gambar.</p>
-      <div class="foot-right">
-        <button type="button" class="btn ghost sm" id="btn-sound2">🔊 Suara: ON</button>
-        <button type="button" class="btn ghost sm" id="btn-full2">⛶ Layar penuh</button>
+      <div class="card-stage">
+        <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="Kartu hobi. Ketuk untuk membalik.">
+          <div class="card-inner">
+            <div class="face front">
+              <div class="media" id="front-media"></div>
+              <div class="face-body">
+                <span class="tag" id="front-tag">What hobby is this?</span>
+                <p class="cue">Ketuk kartu untuk melihat jawaban</p>
+              </div>
+            </div>
+            <div class="face back">
+              <div class="media" id="back-media"></div>
+              <div class="face-body">
+                <span class="tag answer-tag" id="back-tag">Jawaban</span>
+                <h2 id="back-word">reading a book</h2>
+                <p class="meaning" id="back-idn">membaca buku</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="flip-hint">Ketuk kartu atau tekan <kbd>Spasi</kbd> untuk membalik · <kbd>←</kbd> <kbd>→</kbd> pindah kartu</p>
       </div>
-    </footer>
 
-    <div class="flash" id="flash" aria-live="polite"></div>
+      <button type="button" class="nav-btn" id="btn-next" aria-label="Kartu berikutnya">›</button>
+    </div>
+
+    <footer class="cardfoot">
+      <button type="button" class="btn ghost" id="btn-review">↺ Belum hafal</button>
+      <button type="button" class="btn primary" id="btn-known">✓ Sudah hafal</button>
+      <p class="foot-count" id="foot-count"></p>
+    </footer>
   </section>
 
-  <!-- ============ RESULTS ============ -->
-  <section class="screen results-screen" id="screen-results" hidden>
-    <div class="results-card">
-      <div class="trophy" id="res-emoji" aria-hidden="true">🏆</div>
-      <h1 id="res-title">Hebat!</h1>
-      <p class="res-sub" id="res-sub"></p>
-      <div class="res-table" id="res-table"></div>
-      <div class="res-meta" id="res-meta"></div>
+  <!-- ============ SUMMARY ============ -->
+  <section class="screen summary-screen" id="screen-summary" hidden>
+    <div class="summary-card">
+      <div class="trophy" id="sum-emoji" aria-hidden="true">📚</div>
+      <h1 id="sum-title">Selesai!</h1>
+      <p class="res-sub" id="sum-sub"></p>
+      <div class="pills">
+        <span class="pill known"><b id="sum-known">0</b> sudah hafal</span>
+        <span class="pill review"><b id="sum-review">0</b> belum hafal</span>
+      </div>
+      <div class="res-table" id="sum-list"></div>
       <div class="res-actions">
-        <button type="button" class="btn primary" id="btn-again">Main Lagi</button>
+        <button type="button" class="btn primary" id="btn-review-left">Ulangi Kartu Belum Hafal</button>
+        <button type="button" class="btn ghost" id="btn-restart">Mulai Lagi</button>
         <button type="button" class="btn ghost" id="btn-setup">Ubah Pengaturan</button>
       </div>
     </div>
@@ -146,6 +139,6 @@
 </main>
 
 <script src="js/data.js"></script>
-<script src="js/game.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
