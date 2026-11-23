@@ -5,7 +5,7 @@
   'use strict';
 
   const HOBBIES = Array.isArray(window.HOBBIES) ? window.HOBBIES : [];
-  const COUNTS = [6, 10, 12, 16, 20];
+  const COUNTS = [6, 8, 10, 11];
   const STORAGE_KEY = 'mbj.flashcard-hobby.v1';
 
   const $ = (id) => document.getElementById(id);
@@ -71,7 +71,7 @@
 
   function loadSettings() {
     const base = {
-      count: 20,
+      count: 11,
       mode: 'image',
       shuffle: true,
       touch: window.matchMedia ? window.matchMedia('(pointer: coarse)').matches : false

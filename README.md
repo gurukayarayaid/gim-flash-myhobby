@@ -5,10 +5,11 @@ Cocok untuk desktop, Interactive Flat Panel (IFP), tablet, dan layar sentuh.
 
 ## Fitur
 
-- 20 kartu hobi dengan **foto realistik** yang fokus pada satu kegiatan
+- 11 kartu hobi dengan **foto realistik** yang fokus pada satu kegiatan
+- Kata dan arti sesuai daftar pada PDF **MY HOBBY — Daftar Kata Hobi** (Bahasa Inggris - Kelas 3 SD)
 - Dua arah belajar: **Gambar → Kata** (tebak bahasa Inggrisnya) atau **Kata → Gambar**
 - Balik kartu dengan ketuk/klik, tombol, atau `Spasi`; pindah kartu dengan `←` `→` atau geser (swipe)
-- Pilih jumlah kartu (6/10/12/16/20), acak kartu, dan mode sentuh dengan kartu lebih besar
+- Pilih jumlah kartu (6/8/10/11), acak kartu, dan mode sentuh dengan kartu lebih besar
 - Tandai **Sudah hafal** / **Belum hafal**, lalu ulangi hanya kartu yang belum hafal
 - Ringkasan hasil berisi daftar kartu, arti bahasa Indonesia, dan statusnya
 - Pengaturan terakhir disimpan di `localStorage`
@@ -26,7 +27,12 @@ python -m http.server 8000
 ```
 index.html
 css/style.css
-js/data.js     # daftar 20 hobi (kata Inggris, arti, gambar)
+js/data.js     # daftar 11 hobi (kata Inggris, arti, gambar)
 js/app.js      # logika flashcard
-assets/hobbies # 20 foto hobi
+assets/hobbies # foto hobi
 ```
+
+## Kredit gambar
+
+Foto `watching-tv.jpg` dan `shopping.jpg` berasal dari foto stok berlisensi CC0 / Public Domain
+(Rawpixel dan FNS Midwest melalui Openverse). Foto hobi lainnya sudah ada di repo sejak awal.
