@@ -12,3 +12,8 @@ window.HOBBIES = [
   { id: 'shopping',    word: 'Shopping',         idn: 'belanja',            img: 'assets/hobbies/shopping.jpg' },
   { id: 'gardening',   word: 'Gardening',        idn: 'berkebun',           img: 'assets/hobbies/gardening.jpg' }
 ];
+
+/* Khusus opsi 6 kartu: enam hobi pertama sesuai urutan PDF */
+window.HOBBIES_SIX = window.HOBBIES.filter((h) => [
+  'swimming', 'football', 'dancing', 'singing', 'reading', 'cycling'
+].indexOf(h.id) !== -1);

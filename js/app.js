@@ -5,6 +5,9 @@
   'use strict';
 
   const HOBBIES = Array.isArray(window.HOBBIES) ? window.HOBBIES : [];
+  const HOBBIES_SIX = Array.isArray(window.HOBBIES_SIX) && window.HOBBIES_SIX.length === 6
+    ? window.HOBBIES_SIX
+    : HOBBIES.slice(0, 6);
   const COUNTS = [6, 8, 10, 11];
   const STORAGE_KEY = 'mbj.flashcard-hobby.v1';
 
@@ -16,6 +19,7 @@
 
     segCount: $('seg-count'),
     segMode: $('seg-mode'),
+    countHint: $('count-hint'),
     modeHint: $('mode-hint'),
     ckShuffle: $('ck-shuffle'),
     ckTouch: $('ck-touch'),
@@ -105,6 +109,16 @@
       : 'Depan: foto hobi. Belakang: kata bahasa Inggris dan artinya.';
   }
 
+  function poolForCount() {
+    return settings.count === 6 ? HOBBIES_SIX : HOBBIES;
+  }
+
+  function hintForCount() {
+    return settings.count === 6
+      ? '6 kartu: Swimming, Playing football, Dancing, Singing, Reading books, Riding a bike.'
+      : 'Tersedia 11 kartu hobi. Kartu diambil acak dari tumpukan.';
+  }
+
   function updateFullUI() {
     const full = !!document.fullscreenElement;
     if (el.btnFullSetup) el.btnFullSetup.textContent = full ? '⛶  Keluar layar penuh' : '⛶  Layar penuh';
@@ -116,6 +130,7 @@
     setSeg(el.segMode, settings.mode);
     el.ckShuffle.checked = settings.shuffle;
     el.ckTouch.checked = settings.touch;
+    el.countHint.textContent = hintForCount();
     el.modeHint.textContent = hintForMode();
     document.body.classList.toggle('touch-mode', settings.touch);
     updateFullUI();
@@ -219,12 +234,13 @@
     el.btnStart.disabled = true;
     el.btnStart.textContent = 'Menyiapkan gambar…';
 
-    await preload(HOBBIES);
+    const pool = poolForCount();
+    await preload(pool);
 
     el.btnStart.disabled = false;
     el.btnStart.textContent = label;
 
-    buildSession(HOBBIES, Math.min(settings.count, HOBBIES.length));
+    buildSession(pool, Math.min(settings.count, pool.length));
   }
 
   el.btnStart.addEventListener('click', startGame);
@@ -430,7 +446,8 @@
   });
 
   el.btnRestart.addEventListener('click', () => {
-    buildSession(HOBBIES, Math.min(settings.count, HOBBIES.length));
+    const pool = poolForCount();
+    buildSession(pool, Math.min(settings.count, pool.length));
   });
 
   el.btnSetup.addEventListener('click', () => {
